@@ -3,7 +3,7 @@ const passport = require('passport');
 
 // Signup Page
 exports.getSignup = (req, res) => {
-    res.render('auth/signup', { signin: true });
+    res.render('layout/auth', { body: '../auth/signup' });
 };
 
 // Handle Signup
@@ -23,13 +23,13 @@ exports.postSignup = async (req, res) => {
 };
 
 // Login Page
-exports.getLogin = (req, res) => {
-    res.render('auth/login', { login: true });
+exports.getLogin =  (req, res) => {
+    res.render('layout/auth', { body: '../auth/login' });
 };
 
 // Handle Login
 exports.postLogin = passport.authenticate('local', {
-    successRedirect: '/dashboard',
+    successRedirect: '/home',
     failureRedirect: '/auth/login',
     failureFlash: true
 });

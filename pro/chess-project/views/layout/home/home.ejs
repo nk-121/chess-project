@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/css/home/home.css">
+    <link rel="stylesheet" href="/css/partials/partials.css">
+</head>
+<body>
+    <%- include('../../partials/login-signup') %> <!-- Include Navbar -->
+    <%- include('../../partials/sidebar') %> <!-- Include Sidebar -->
+    
+    <div class="content">
+        
+        
+        <%-include( body) %> <!-- Dynamic content insertion -->
+    </div>
+    
+    <%- include('../../partials/footer') %> <!-- Include Footer -->
+    
+    <script src="/js/partials/sidebar.js"></script>
+</body>
+</html>

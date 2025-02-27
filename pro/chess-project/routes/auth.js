@@ -2,15 +2,11 @@ const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController');
 
-router.get('/signup', (req, res) => {
-    res.render('layout/auth', { body: '../auth/signup' });
-});
+router.get('/signup', authController.getSignup);
 
 router.post('/signup', authController.postSignup);
 
-router.get('/login', (req, res) => {
-    res.render('layout/auth', { body: '../auth/login' });
-});
+router.get('/login', authController.getLogin);
 
 router.post('/login', authController.postLogin);
 
