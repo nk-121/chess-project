@@ -1,0 +1,45 @@
+.login-signup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    position: relative;
+}
+
+.buttons-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Styling for buttons */
+button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+}
+
+button:hover {
+    background-color: #777;
+}
+
+/* Popup Styles */
+
+/* Show popup when hovering over button */
+
+
