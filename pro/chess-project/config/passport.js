@@ -1,10 +1,13 @@
 const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy; // ✅ Import LocalStrategy
+const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt");
 
-// Passport Local Strategy
+// Import your models
+
+const { Player, Organizer, Coordinator } = require('../models/User');
+
 passport.use(new LocalStrategy(
-    { usernameField: "username", passwordField: "password", passReqToCallback: true }, 
+    { usernameField: "username", passwordField: "password", passReqToCallback: true },
     async (req, username, password, done) => {
         try {
             const role = req.body.role; // Get role from request body
@@ -37,4 +40,24 @@ passport.use(new LocalStrategy(
     }
 ));
 
-module.exports = passport; // ✅ Export Passport for use in `app.js`
+passport.serializeUser((user, done) => {
+    done(null, { id: user.id, role: user.role });
+});
+
+passport.deserializeUser(async (data, done) => {
+    let Model;
+    if (data.role === "player") Model = Player;
+    else if (data.role === "organizer") Model = Organizer;
+    else if (data.role === "coordinator") Model = Coordinator;
+    
+    if (!Model) return done(new Error("Invalid role"));
+    
+    try {
+        const user = await Model.findById(data.id);
+        done(null, user);
+    } catch (err) {
+        done(err);
+    }
+});
+
+module.exports = passport;

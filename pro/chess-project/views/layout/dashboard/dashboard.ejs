@@ -3,24 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="/css/home/home.css">
     <link rel="stylesheet" href="/css/partials/login-signup.css">
     <link rel="stylesheet" href="/css/partials/sidebar.css">
     <link rel="stylesheet" href="/css/partials/footer.css">
-    
 </head>
 <body>
-    <%- include('../../partials/homepage/login-signup') %> <!-- Include Navbar -->
-    <%- include('../../partials/homepage/sidebar') %> <!-- Include Sidebar -->
-    
+   
     <div class="content">
-        
-        
-        <%-include( body) %> <!-- Dynamic content insertion -->
+        <!-- Load Role-Specific Dashboard -->
+        <%- include(body) %>  
     </div>
     
-     <%- include('../../partials/homepage/footer') %><!-- Include Footer -->
     
     <script src="/js/partials/homepage/sidebar.js"></script>
     <script src="/js/partials/homepage/authredirect.js"></script>

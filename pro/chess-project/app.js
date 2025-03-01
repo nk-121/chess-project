@@ -8,7 +8,7 @@ const homeRoutes = require('./routes/home');
 const flash = require('connect-flash');
 const { ensureAuthenticated } = require("./middlewares/authMiddleware");
 require('./config/passport'); // Passport config
-
+const dashboardRoutes = require('./routes/dashboard');
 const app = express();
 
 // ✅ Setup Session Middleware BEFORE flash
@@ -54,6 +54,9 @@ app.use((req, res, next) => {
 // ✅ Define Routes AFTER authentication middleware
 app.use('/auth', authRoutes);
 app.use("/", homeRoutes);
+
+app.use('/dashboard', dashboardRoutes);
+
 
 // ✅ Example Flash Message Route
 app.get('/set-flash', (req, res) => {

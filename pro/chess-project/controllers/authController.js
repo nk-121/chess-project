@@ -49,11 +49,27 @@ exports.getLogin = (req, res) => {
 };
 
 // ✅ Handle Login
-exports.postLogin = passport.authenticate('local', {
-    successRedirect: '/home',
-    failureRedirect: '/auth/login',
-    failureFlash: true // ✅ This enables flash messages for failed login attempts
-});
+exports.postLogin = (req, res, next) => {
+    passport.authenticate('local', (err, user, info) => {
+        if (err) return next(err);
+        if (!user) return res.redirect('/auth/login'); // Authentication failed
+        
+        req.logIn(user, (err) => {
+            if (err) return next(err);
+
+            // Redirect based on the user's role
+            if (user.role === "player") {
+                return res.redirect('/dashboard/player');
+            } else if (user.role === "organizer") {
+                return res.redirect('/dashboard/organizer');
+            } else if (user.role === "coordinator") {
+                return res.redirect('/dashboard/coordinator');
+            } else {
+                return res.redirect('/auth/login'); // Fallback in case of unknown role
+            }
+        });
+    })(req, res, next);
+};
 
 // ✅ Logout
 exports.logout = (req, res) => {
