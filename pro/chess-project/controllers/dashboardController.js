@@ -1,25 +1,67 @@
 
 exports.getplayer = (req, res) => {
     res.render('layout/dashboard/dashboard', { 
-        body: "../../dashboard/playerDashboard",
-        navbar: "../../partials/dashboard/playerPartials/dashboardNavbar",
-        footer: "../../partials/dashboard/playerPartials/dashboardFooter"
+        body: "../../dashboard/player/playerDashboard",
+       req:req
     });
 };
 //"../dashboard/playerDashboard"
 
 exports.getorganizer = (req, res) => {
     res.render('layout/dashboard/dashboard', { 
-        body: "../../dashboard/organizerDashboard",
-        navbar: "../../partials/dashboard/organizerPartials/dashboardNavbar",
-        footer: "../../partials/dashboard/organizerPartials/dashboardFooter"
+        body: "../../dashboard/organizer/organizerDashboard",
+        req:req
     });
 };
 
 exports.getcoordinator = (req, res) => {
     res.render('layout/dashboard/dashboard', { 
-        body: "../../dashboard/coordinatorDashboard",
-        navbar: "../../partials/dashboard/coordinatorPartials/dashboardNavbar",
-        footer: "../../partials/dashboard/coordinatorPartials/dashboardFooter"
+        body: "../../dashboard/coordinator/coordinatorDashboard",
+        req:req
     });
 };
+
+exports.getsubscription = (req, res) => {
+
+    res.render('dashboard/helpingpages/subscription', { 
+        req: req
+     
+    });
+}
+
+exports.gethome = (req, res) => {
+
+    res.render('dashboard/helpingpages/home', { 
+        req: req
+
+    });
+}
+
+exports.getecommerce_store = (req, res) => {
+
+    res.render('dashboard/helpingpages/ecommerce-store', { 
+        req: req
+     
+    });
+}
+
+exports.gettournaments = (req, res) => {
+
+    res.render('dashboard/helpingpages/tournaments', {
+        req: req
+     
+    });
+
+
+
+}
+
+exports.getgrowthtracking = (req, res) => {
+
+    res.render('dashboard/helpingpages/growth_tracking', {
+        req: req
+     
+    });
+
+
+}

@@ -9,6 +9,7 @@ const flash = require('connect-flash');
 const { ensureAuthenticated } = require("./middlewares/authMiddleware");
 require('./config/passport'); // Passport config
 const dashboardRoutes = require('./routes/dashboard');
+const { getsubscription } = require('./controllers/dashboardController');
 const app = express();
 
 // ✅ Setup Session Middleware BEFORE flash
@@ -57,6 +58,11 @@ app.use("/", homeRoutes);
 
 app.use('/dashboard', dashboardRoutes);
 
+app.use(dashboardRoutes);
+app.use( dashboardRoutes);
+app.use(dashboardRoutes);
+app.use( dashboardRoutes);
+app.use( dashboardRoutes);
 
 // ✅ Example Flash Message Route
 app.get('/set-flash', (req, res) => {

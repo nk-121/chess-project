@@ -4,20 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="/css/home/home.css">
-    <link rel="stylesheet" href="/css/partials/login-signup.css">
-    <link rel="stylesheet" href="/css/partials/sidebar.css">
-    <link rel="stylesheet" href="/css/partials/footer.css">
+
+    
+    <!-- Role-Specific CSS -->
+    <% if (req.user.role === 'player') { console.log(req.user.role) %>
+        <link rel="stylesheet" href="/css/dashboards/player/navbar.css">
+    <% } else if (req.user.role === 'organizer') {console.log("inside organizer"); %>
+        <link rel="stylesheet" href="/css/dashboards/organizer/navbar.css">
+    <% } else if (req.user.role === 'coordinator') { %>
+        <link rel="stylesheet" href="/css/dashboards/coordinator/navbar.css">
+    <% } %>
+
 </head>
 <body>
    
-    <div class="content">
+  
         <!-- Load Role-Specific Dashboard -->
-        <%- include(body) %>  
-    </div>
+       
+        <%- include(body) %> 
+         
     
     
-    <script src="/js/partials/homepage/sidebar.js"></script>
+    <!-- Common Scripts -->
+    <script src="/js/partials/dashboard/dashboard.js"></script>
     <script src="/js/partials/homepage/authredirect.js"></script>
 </body>
 </html>

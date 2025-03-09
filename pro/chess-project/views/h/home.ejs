@@ -1,4 +1,66 @@
-<main class="home-content">
-    <h1>Welcome to MyWebsite</h1>
-    <p>This is the homepage content.</p>
-</main>
+
+    <main class="main-container">
+        <section class="main-body">
+            <section id="slogan">
+                <h1>Welcome to the Ultimate Chess Platform</h1>
+                <p>Host, play, and analyze chess matches like never before.</p>
+            </section>
+            
+            <section id="slideshow">
+                <div class="slide fade">
+                    <img src="/images/slide1.jpg" alt="Chess Match">
+                    <p class="image-caption">Grandmaster showdown in progress</p>
+                </div>
+                <div class="slide fade">
+                    <img src="/images/slide2.jpg" alt="Tournament">
+                    <p class="image-caption">International Chess Tournament Highlights</p>
+                </div>
+                <div class="slide fade">
+                    <img src="/images/slide3.jpg" alt="Players Competing">
+                    <p class="image-caption">Rising stars competing in a blitz game</p>
+                </div>
+            </section>
+            
+            <section id="statistics">
+                <div class="stat-component">
+                    <div class="stat-text">
+                        <h3>Daily Active Players</h3>
+                        <p>Discover how many players engage in matches daily.</p>
+                    </div>
+                    <div class="stat-graph" id="players-graph"></div>
+                </div>
+                
+                <div class="stat-component">
+                   
+                    <div class="stat-text">
+                        <h3>Ongoing Matches</h3>
+                        <p>View the current games being played live.</p>
+                         
+                    </div>
+                    <div class="stat-graph" id="matches-graph"></div>
+                </div>
+                
+                <div class="stat-component">
+                    <div class="stat-text">
+                        <h3>Upcoming Tournaments</h3>
+                        <p>Stay updated with the latest chess tournaments.</p>
+                    </div>
+                    <div class="stat-graph" id="tournaments-graph"></div>
+                </div>
+            </section>
+        </section>
+        
+        <aside class="side-features">
+            <h2>Related Features</h2>
+            <ul>
+                <li><a href="#">AI Chess Analysis</a></li>
+                <li><a href="#">Top Players Leaderboard</a></li>
+                <li><a href="#">Live Commentary</a></li>
+                <li><a href="#">Chess Training Modules</a></li>
+            </ul>
+        </aside>
+    </main>
+ 
+    
+    <script src="/js/home/homebody.js"></script>
+    <script src="/js/stats.js"></script>
