@@ -1,6 +1,5 @@
 require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const authRoutes = require('./routes/auth');
@@ -9,7 +8,6 @@ const flash = require('connect-flash');
 const { ensureAuthenticated } = require("./middlewares/authMiddleware");
 require('./config/passport'); // Passport config
 const dashboardRoutes = require('./routes/dashboard');
-const { getsubscription } = require('./controllers/dashboardController');
 const app = express();
 
 // ✅ Setup Session Middleware BEFORE flash
@@ -39,10 +37,6 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
-// ✅ Database Connection
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log('MongoDB Connected'))
-    .catch(err => console.log(err));
 
 // ✅ Protect All Routes Except `/auth` & `/home`
 app.use((req, res, next) => {
